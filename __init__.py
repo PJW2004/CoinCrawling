@@ -1,5 +1,5 @@
 import requests.exceptions
-
+import os
 
 def lookup_():
     from API.lookup import look
@@ -35,7 +35,11 @@ def lookup_():
 
 if __name__ == '__main__':
     try:
-        from API.coin import ather, coins
-        lookup_()
+        try:
+            from API.coin import ather, coins
+            lookup_()
+        except ModuleNotFoundError:
+            os.system('pip install -r requirements.txt')
+            print('시스템을 다시 켜 주세요')
     except requests.exceptions.ConnectionError:
         print('와이파이 연결후 시도해 주세요.')
