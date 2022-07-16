@@ -19,6 +19,7 @@ for x, d in enumerate(data.find('tbody').find_all('tr')):
     else:
         ather.append(d.find(class_='crypto-symbol').text) 
 
+        
 print(coins)
 print(f'''그외 : {len(ather)}...
 =================================================''')
